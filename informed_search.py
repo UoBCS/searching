@@ -1,16 +1,5 @@
 import inspect
-
-
-class PriorityQueue(object):
-    def __init__(self, func):
-        self.func = func
-        self.queue = []
-
-    def enqueue(self, val):
-        pass
-
-    def dequeue(self):
-        return self.queue.pop(0)
+import priority_queue as pq
 
 
 def greedy_best_first_search(G, h, s, f):
@@ -25,10 +14,11 @@ def greedy_best_first_search(G, h, s, f):
     if not inspect.isfunction(h):
         return False
 
-    explored, frontier = [], [s]
+    explored, frontier = [], pq.PriorityQueue('h')
+    frontier.enqueue(s)
 
     while frontier:
-        v = frontier.pop(0)
+        v = frontier.dequeue()
         if v == f:
             pass
         else:
@@ -44,4 +34,8 @@ def greedy_best_first_search(G, h, s, f):
 
 
 def a_star_search(G, h, s, f):
+    pass
+
+
+def simulated_annealing(G, h, s, f):
     pass
