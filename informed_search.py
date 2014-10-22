@@ -26,9 +26,8 @@ def greedy_best_first_search(G, h, s, f):
                 explored.append(v)
 
                 for w in G[v]:
-                    pass
-
-                frontier.extend([w for w in G[v] if w not in explored])
+                    if w not in explored:
+                        frontier.enqueue(w)
 
     return explored
 
