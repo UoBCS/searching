@@ -1,8 +1,6 @@
-import inspect
-import priority_queue as pq
+import Queue
 
-
-def greedy_best_first_search(G, h, s, f):
+def greedy_best_first_search(G, s, f):
     """
 
     :param G:
@@ -11,14 +9,12 @@ def greedy_best_first_search(G, h, s, f):
     :param f:
     :return:
     """
-    if not inspect.isfunction(h):
-        return False
 
-    explored, frontier = [], pq.PriorityQueue('h')
-    frontier.enqueue(s)
+    explored, frontier = [], Queue.PriorityQueue()
+    frontier.put(s)
 
-    while frontier:
-        v = frontier.dequeue()
+    while not frontier.empty():
+        v = frontier.get()
         if v == f:
             pass
         else:
@@ -27,14 +23,24 @@ def greedy_best_first_search(G, h, s, f):
 
                 for w in G[v]:
                     if w not in explored:
-                        frontier.enqueue(w)
+                        frontier.put(w)
 
     return explored
 
+"""q = Queue.PriorityQueue()
 
-def a_star_search(G, h, s, f):
+q.put( Job(3, 'Mid-level job') )
+q.put( Job(10, 'Low-level job') )
+q.put( Job(1, 'Important job') )
+
+while not q.empty():
+    next_job = q.get()
+    print 'Processing job:', next_job.description"""
+
+
+def a_star_search(G, s, f):
     pass
 
 
-def simulated_annealing(G, h, s, f):
+def simulated_annealing(G, s, f):
     pass
