@@ -1,11 +1,11 @@
 
 def bfs(G, s, f):
     """
-
-    :param G:
-    :param s:
-    :param f:
-    :return:
+    Breadth-first search
+    :param G: The graph object
+    :param s: The start node
+    :param f: The goal node
+    :return: The explored set
     """
     explored, frontier = [], [s]
 
@@ -19,13 +19,14 @@ def bfs(G, s, f):
 
     return explored
 
+
 def dfs(G, s, f):
     """
-
-    :param G:
-    :param s:
-    :param f:
-    :return:
+    Depth-first search
+    :param G: The graph object
+    :param s: The start node
+    :param f: The goal node
+    :return: The explored set
     """
     explored, frontier = [], [s]
 

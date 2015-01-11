@@ -1,4 +1,5 @@
-import Queue
+import queue as q
+
 
 def greedy_best_first_search(G, s, f):
     """
@@ -10,7 +11,9 @@ def greedy_best_first_search(G, s, f):
     :return:
     """
 
-    explored, frontier = [], Queue.PriorityQueue()
+
+    q.PriorityQueue
+    explored, frontier = [], q.Queue(-1)
     frontier.put(s)
 
     while not frontier.empty():
